@@ -26,16 +26,23 @@ describe 'kitties::cat' do
           let(:params) { { 'ensure' => 'present' } }
 
           it { is_expected.to compile }
-          it { is_expected.to contain_user('namevar').with_ensure('present') }
-          it { is_expected.to contain_user('namevar').with_gid('cat') }
-          it { is_expected.to contain_user('namevar').with_managehome(true) }
-          it { is_expected.to contain_user('namevar').with_home('/opt/cats/namevar') }
-          it { is_expected.to contain_user('namevar').with_comment('Cat namevar in laura') }
-
-          it { is_expected.to contain_file('/opt/cats/namevar/cat.txt').with_ensure('file') }
-          it { is_expected.to contain_file('/opt/cats/namevar/cat.txt').with_owner('namevar') }
-          it { is_expected.to contain_file('/opt/cats/namevar/cat.txt').with_group('cat') }
-          it { is_expected.to contain_file('/opt/cats/namevar/cat.txt').with_content('I am namevar and I am a good kitty') }
+          it { is_expected.to contain_user('namevar').with 
+            ({
+              'ensure'     => 'present',
+              'gid'        => 'cat',
+              'managehome' => true,
+              'home'       => '/opt/cats/namevar',
+              'comment'    => 'Cat namevar in laura'
+            })
+          }
+          it { is_expected.to contain_file('/opt/cats/namevar/cat.txt').with
+            ({
+              'ensure'  => 'file',
+              'owner'   => 'namevar',
+              'group'   => 'cat',
+              'content' => 'I am namevar and I am a good kitty',
+            })
+          }
         end
         context 'ensure => wrong_value' do
           let(:params) { { 'ensure' => 'wrong_value' } }
