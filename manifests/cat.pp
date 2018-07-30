@@ -9,12 +9,12 @@
 #   }
 define kitties::cat(
   Enum['present','absent'] $ensure = 'absent',
-  String                   $group  = 'cat',
+  String                   $group  = 'kitty',
 ) {
 
-#  if $group.is_a(String) {
-#    notice ('Var group is the right type')
-#  }
+  if $group.is_a(String) {
+    notice ('Var group is the right type')
+  }
 
   user { $title:
     ensure     => $ensure,
