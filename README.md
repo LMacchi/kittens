@@ -1,14 +1,13 @@
+![Testing](https://i.stack.imgur.com/Wf1jJ.gif)
+
 
 # kitties
+
+![Vincent Van No](https://i.chzbgr.com/full/9035368704/h7254EBB5/)
 
 Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
 
 The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
 
 
 #### Table of Contents
