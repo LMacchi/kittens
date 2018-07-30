@@ -12,6 +12,10 @@ define kitties::cat(
   String                   $group  = 'cat',
 ) {
 
+#  if $group.is_a(String) {
+#    notice ('Var group is the right type')
+#  }
+
   user { $title:
     ensure     => $ensure,
     gid        => $group,
